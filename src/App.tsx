@@ -1,8 +1,22 @@
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import { Navigation } from './components/Navigation';
+import { Footer } from './components/Footer';
+import { CompanyPage } from './pages/CompanyPage';
+import { TeenPage } from './pages/TeenPage';
+
 function App() {
   return (
-    <div className="min-h-screen bg-gray-100 flex items-center justify-center">
-      <p>Start prompting (or editing) to see magic happen :)</p>
-    </div>
+    <Router>
+      <div className="min-h-screen bg-white">
+        <Navigation />
+        <Routes>
+          <Route path="/" element={<Navigate to="/hire-teens" replace />} />
+          <Route path="/hire-teens" element={<CompanyPage />} />
+          <Route path="/teen-jobs" element={<TeenPage />} />
+        </Routes>
+        <Footer />
+      </div>
+    </Router>
   );
 }
 
